@@ -2560,6 +2560,389 @@ body > div.lg\:hidden.fixed.bottom-0 {
 }
 </style>
 
+
+
+<style id="hvac-text-visibility-only-fix">
+/* Text visibility correction only.
+   This block intentionally does NOT change backgrounds, borders, gradients,
+   button fills, section surfaces or the site's existing color palette. */
+body :where(h1,h2,h3,h4,h5,h6,p,a,button,span,label,li,strong,small,figcaption,input,select,textarea) {
+    -webkit-text-fill-color: currentColor !important;
+}
+
+/* Keep generated/service-modal copy readable without changing its computed colors. */
+#serviceModal :where(h1,h2,h3,h4,p,a,button,span,strong,li),
+#mobileDrawer :where(a,span,strong),
+footer :where(h1,h2,h3,h4,p,a,span,strong,small,li) {
+    -webkit-text-fill-color: currentColor !important;
+}
+
+/* Preserve the existing text colors over project/photo overlays. */
+#homeProjectShowcase :where(h1,h2,h3,p,a,span,strong,small),
+.project-hero-slider :where(h1,h2,h3,p,a,span,strong,small),
+#featured-work .bg-gradient-to-t :where(h1,h2,h3,p,a,span,strong,small),
+#gallery .bg-gradient-to-t :where(h1,h2,h3,p,a,span,strong,small) {
+    -webkit-text-fill-color: currentColor !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+    -webkit-text-fill-color: currentColor !important;
+}
+</style>
+
+
+<style id="hvac-reviews-visibility-fix">
+/* Review cards: visibility-only fix. Existing site colors are preserved. */
+#reviews .glass-card,
+#reviews .glass-card * {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+#reviews .glass-card p {
+    color: var(--ink-soft, #334155) !important;
+    -webkit-text-fill-color: var(--ink-soft, #334155) !important;
+}
+#reviews .glass-card h4 {
+    color: var(--ink, #0F172A) !important;
+    -webkit-text-fill-color: var(--ink, #0F172A) !important;
+}
+#reviews .glass-card span,
+#reviews .glass-card span i,
+#reviews .glass-card > div > div:first-child i {
+    color: var(--brand-primary, #33AADF) !important;
+    -webkit-text-fill-color: var(--brand-primary, #33AADF) !important;
+}
+#reviews .glass-card p.text-slate-400 {
+    color: var(--muted, #64748B) !important;
+    -webkit-text-fill-color: var(--muted, #64748B) !important;
+}
+</style>
+
+
+<style id="hvac-mobile-responsive-final">
+/* =========================================================
+   MOBILE RESPONSIVE FINAL — layout only
+   Keeps the existing colors, content and visual identity.
+   ========================================================= */
+html, body { max-width:100%; overflow-x:hidden; }
+img, video, iframe { max-width:100%; }
+
+@media (max-width: 767px) {
+    html { scroll-padding-top: 104px; }
+    body { padding-bottom: calc(72px + env(safe-area-inset-bottom)); }
+    section[id] { scroll-margin-top: 104px; }
+
+    /* Announcement bar */
+    body > div:first-child { padding:7px 12px !important; }
+    body > div:first-child > div { gap:6px !important; }
+    body > div:first-child > div > div:first-child {
+        width:100%;
+        flex-wrap:wrap;
+        gap:6px !important;
+        line-height:1.25;
+    }
+    body > div:first-child > div > div:first-child > span:last-child {
+        font-size:10px;
+        line-height:1.25;
+    }
+    body > div:first-child > div > div:last-child {
+        width:100%;
+        justify-content:center;
+    }
+
+    /* Header / mobile menu */
+    #mainHeader > div:first-child {
+        height:64px !important;
+        padding-left:14px !important;
+        padding-right:14px !important;
+        gap:10px;
+    }
+    #mainHeader a[aria-label="HVAC Solution Home"] { min-width:0; }
+    #mainHeader a[aria-label="HVAC Solution Home"] > span {
+        padding:5px 7px !important;
+        max-width:205px;
+    }
+    #mainHeader a[aria-label="HVAC Solution Home"] img {
+        height:34px !important;
+        width:auto !important;
+        max-width:180px !important;
+    }
+    #mobileMenuBtn {
+        flex:0 0 auto;
+        width:44px;
+        height:44px;
+        padding:0 !important;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+    }
+    #mobileDrawer {
+        max-height:calc(100dvh - 98px);
+        overflow-y:auto;
+        overscroll-behavior:contain;
+        padding:16px !important;
+    }
+    #mobileDrawer .mobile-link { min-height:44px; }
+
+    /* Global section rhythm */
+    body > section:not(#homeProjectShowcase) {
+        padding-top:52px !important;
+        padding-bottom:52px !important;
+    }
+    body > section > .max-w-7xl,
+    body > section > .max-w-4xl,
+    body > section > .max-w-3xl,
+    footer > .max-w-7xl {
+        padding-left:16px !important;
+        padding-right:16px !important;
+    }
+    section:not(#homeProjectShowcase) h2 {
+        font-size:clamp(27px, 8vw, 34px) !important;
+        line-height:1.08 !important;
+        letter-spacing:-.025em !important;
+    }
+    section:not(#homeProjectShowcase) .text-center.max-w-3xl {
+        margin-bottom:32px !important;
+    }
+    section:not(#homeProjectShowcase) .text-base,
+    section:not(#homeProjectShowcase) .sm\:text-lg {
+        line-height:1.55 !important;
+    }
+
+    /* Opening before/after automatic hero */
+    #homeProjectShowcase .top-project-slider {
+        height:590px !important;
+        min-height:590px !important;
+    }
+    #homeProjectShowcase .top-project-content {
+        padding-left:16px !important;
+        padding-right:16px !important;
+    }
+    #homeProjectShowcase .top-ba-copy {
+        width:100% !important;
+        padding-bottom:64px !important;
+    }
+    #homeProjectShowcase .top-ba-copy .top-project-eyebrow {
+        max-width:100%;
+        white-space:normal;
+        line-height:1.2;
+    }
+    #homeProjectShowcase .top-ba-copy h1,
+    #homeProjectShowcase .top-ba-copy h2 {
+        font-size:clamp(28px, 9vw, 35px) !important;
+        line-height:1.02 !important;
+        max-width:100% !important;
+    }
+    #homeProjectShowcase .top-ba-copy .top-project-description {
+        font-size:12.5px !important;
+        line-height:1.42 !important;
+        max-width:100% !important;
+    }
+    #homeProjectShowcase .top-project-actions {
+        width:100%;
+        display:grid !important;
+        grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+        gap:8px !important;
+    }
+    #homeProjectShowcase .top-project-actions a {
+        width:100%;
+        min-width:0;
+        padding:9px 10px !important;
+        min-height:44px !important;
+        height:auto !important;
+        line-height:1.15;
+        text-align:center;
+        white-space:normal;
+    }
+    #homeProjectShowcase .top-project-bottom {
+        padding-left:16px !important;
+        padding-right:16px !important;
+    }
+    #homeProjectShowcase .top-project-trustbar > div {
+        padding-left:10px !important;
+        padding-right:10px !important;
+    }
+    #homeProjectShowcase .top-project-trustgrid > div {
+        min-width:0;
+        padding:12px 8px !important;
+    }
+    #homeProjectShowcase .top-project-trustgrid span { min-width:0; }
+
+    /* Stats / generic card grids */
+    section .grid { min-width:0; }
+    section .grid > * { min-width:0; }
+    section .gap-8 { gap:16px !important; }
+    section .gap-12 { gap:28px !important; }
+
+    /* Services */
+    #services .glass-card {
+        padding:20px !important;
+        border-radius:20px !important;
+    }
+    #services .glass-card .w-14.h-14 {
+        width:48px !important;
+        height:48px !important;
+        margin-bottom:16px !important;
+    }
+    #services .glass-card h3 {
+        font-size:18px !important;
+        line-height:1.25 !important;
+    }
+    #services .glass-card p {
+        font-size:13px !important;
+        line-height:1.55 !important;
+        margin-bottom:18px !important;
+    }
+    #services .glass-card > .pt-4 {
+        gap:10px;
+        align-items:center;
+        flex-wrap:wrap;
+    }
+    #services .glass-card > .pt-4 > span {
+        max-width:62%;
+        line-height:1.2;
+    }
+
+    /* Before/after cards */
+    .before-after-section .ba-title { font-size:clamp(27px,8vw,34px) !important; }
+    .before-after-section .ba-card { border-radius:20px !important; overflow:hidden; }
+    .before-after-section .ba-card-head { gap:10px; flex-wrap:wrap; }
+    .before-after-section .ba-card-head h3 { font-size:18px !important; line-height:1.25 !important; }
+
+    /* Real project gallery / featured work */
+    #gallery .glass-card,
+    #featured-work .glass-card { border-radius:20px !important; }
+    #gallery img,
+    #featured-work img { max-width:100%; }
+
+    /* Reviews */
+    #reviews .grid { gap:16px !important; }
+    #reviews .glass-card {
+        padding:20px !important;
+        border-radius:20px !important;
+    }
+    #reviews .glass-card p {
+        font-size:14px !important;
+        line-height:1.6 !important;
+        margin-bottom:20px !important;
+    }
+    #reviews .glass-card > div:last-child {
+        gap:10px;
+        flex-wrap:wrap;
+        align-items:flex-start !important;
+    }
+    #reviews .glass-card > div:last-child > div { min-width:0; }
+    #reviews .glass-card > div:last-child > span { flex:0 0 auto; }
+
+    /* Contact */
+    #contact .grid.lg\:grid-cols-12 { gap:28px !important; }
+    #contact h2 { margin-bottom:16px !important; }
+    #contact .space-y-6 { margin-bottom:24px !important; }
+    #contact .space-y-6 > div { gap:12px !important; }
+    #contact .w-12.h-12 {
+        width:44px !important;
+        height:44px !important;
+        border-radius:14px !important;
+    }
+    #contact .glass-card.p-8,
+    #contact .glass-card.sm\:p-10 {
+        padding:20px !important;
+        border-radius:20px !important;
+    }
+    #quoteForm { gap:0; }
+    #quoteForm .space-y-6 { margin-bottom:0 !important; }
+    #quoteForm input,
+    #quoteForm select,
+    #quoteForm textarea {
+        width:100%;
+        min-width:0;
+        font-size:16px !important;
+    }
+    #quoteForm .grid { gap:16px !important; }
+    #quoteForm button,
+    #quoteForm a { white-space:normal !important; text-align:center; }
+
+    /* About */
+    #about .lg\:col-span-5 img { height:320px !important; }
+    #about .absolute.bottom-6 {
+        left:14px !important;
+        right:14px !important;
+        bottom:14px !important;
+        padding:12px !important;
+    }
+
+    /* Service areas and misc cards */
+    #areas .glass-card,
+    #air-quality .glass-card { padding:20px !important; border-radius:20px !important; }
+
+    /* Footer */
+    footer { padding-bottom:88px !important; }
+    footer .flex.gap-6 { flex-wrap:wrap; gap:12px 18px !important; }
+    footer .border-t > div,
+    footer .pt-8 {
+        gap:14px !important;
+        text-align:center;
+        justify-content:center !important;
+    }
+
+    /* Bottom fixed actions */
+    body > div.lg\:hidden.fixed.bottom-0 {
+        padding:10px 12px calc(10px + env(safe-area-inset-bottom)) !important;
+    }
+    body > div.lg\:hidden.fixed.bottom-0 .grid { gap:8px !important; }
+    body > div.lg\:hidden.fixed.bottom-0 a {
+        min-height:44px;
+        padding:10px 8px !important;
+        line-height:1.15;
+    }
+
+    /* Service modal */
+    #serviceModal {
+        padding:12px !important;
+        align-items:flex-end !important;
+    }
+    #serviceModal > div {
+        max-height:88dvh;
+        overflow-y:auto;
+        padding:20px !important;
+        border-radius:22px 22px 0 0 !important;
+    }
+    #serviceModal button.absolute { top:10px !important; right:10px !important; }
+}
+
+@media (max-width: 420px) {
+    body > div:first-child > div > div:first-child > span:last-child { font-size:9.5px; }
+    #mainHeader a[aria-label="HVAC Solution Home"] > span { max-width:170px; }
+    #mainHeader a[aria-label="HVAC Solution Home"] img { max-width:150px !important; }
+
+    #homeProjectShowcase .top-project-slider {
+        height:565px !important;
+        min-height:565px !important;
+    }
+    #homeProjectShowcase .top-ba-pane figcaption span {
+        min-width:58px !important;
+        padding:6px 8px !important;
+        font-size:8px !important;
+    }
+    #homeProjectShowcase .top-ba-divider span {
+        width:32px !important;
+        height:32px !important;
+    }
+    #homeProjectShowcase .top-ba-copy h1,
+    #homeProjectShowcase .top-ba-copy h2 { font-size:29px !important; }
+    #homeProjectShowcase .top-ba-copy .top-project-description { font-size:11.5px !important; }
+    #homeProjectShowcase .top-project-actions a { font-size:10.5px !important; }
+
+    #services .glass-card,
+    #reviews .glass-card,
+    #contact .glass-card.p-8,
+    #contact .glass-card.sm\:p-10 { padding:18px !important; }
+
+    section:not(#homeProjectShowcase) h2 { font-size:27px !important; }
+}
+</style>
+
 </head>
 <body class="antialiased selection:bg-emerald-500 selection:text-slate-950">
 
